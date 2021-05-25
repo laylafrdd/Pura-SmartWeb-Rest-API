@@ -13,9 +13,11 @@ class TrainerFeedback extends Model
      * @var array
      */
     protected $fillable = [
-        'pelafalan', 'penguasaan', 'kreativitas', 'interaksi', 'penjelasan', 'kesan_positif', 'kesan_negatif', 'created_at', 'id_trainer', 'masukkan_training_selanjutnya', 'isi_training', 'user'
+        'pelafalan', 'penguasaan', 'kreativitas', 'interaksi', 'penjelasan', 'kesan_positif', 'kesan_negatif', 'created_at', 'id_trainer', 'masukkan_training_selanjutnya', 'isi_training', 'user', 'updated_at'
     ];
     public $timestamps = true;
+    protected $table = 'trainerfeedback';
+    protected $primaryKey = 'id_trainer';
     /**
      * The attributes excluded from the model's JSON form.
      *

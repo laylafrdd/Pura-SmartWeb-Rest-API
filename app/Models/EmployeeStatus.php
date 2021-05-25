@@ -13,9 +13,11 @@ class EmployeeStatus extends Model
      * @var array
      */
     protected $fillable = [
-        'status_karyawan', 'created_at', 'id_status'
+        'status_karyawan', 'created_at', 'id_status', 'updated_at'
     ];
     public $timestamps = true;
+    protected $table = 'statuskaryawan';
+    protected $primaryKey = 'id_status';
     /**
      * The attributes excluded from the model's JSON form.
      *

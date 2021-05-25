@@ -13,9 +13,11 @@ class TrainingContent extends Model
      * @var array
      */
     protected $fillable = [
-        'isi_training', 'created_at', 'jenis_training', 'id_isi_training'
+        'isi_training', 'created_at', 'jenis_training', 'id_isi_training', 'updated_at'
     ];
     public $timestamps = true;
+    protected $table = 'isitraining';
+    protected $primaryKey = 'id_isi_training';
     /**
      * The attributes excluded from the model's JSON form.
      *

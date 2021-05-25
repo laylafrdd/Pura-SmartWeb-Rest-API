@@ -13,9 +13,11 @@ class RegulationVideo extends Model
      * @var array
      */
     protected $fillable = [
-        'video_peraturan', 'nama_peraturan', 'link_youtube', 'created_at', 'id_video', 'status_karyawan'
+        'video_peraturan', 'nama_peraturan', 'link_youtube', 'created_at', 'id_video', 'status_karyawan', 'updated_at'
     ];
     public $timestamps = true;
+    protected $table = 'videoperaturan';
+    protected $primaryKey = 'id_video';
     /**
      * The attributes excluded from the model's JSON form.
      *

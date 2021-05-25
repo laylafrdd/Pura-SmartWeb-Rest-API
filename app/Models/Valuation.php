@@ -13,9 +13,11 @@ class Valuation extends Model
      * @var array
      */
     protected $fillable = [
-        'id_penilaian', 'skor', 'opsi', 'created_at'
+        'id_penilaian', 'skor', 'opsi', 'created_at', 'updated_at'
     ];
     public $timestamps = true;
+    protected $table = 'penilaian';
+    protected $primaryKey = 'id_penilaian';
     /**
      * The attributes excluded from the model's JSON form.
      *

@@ -23,6 +23,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     ];
     
     public $timestamps = true;
+    protected $table = 'users';
+    protected $primaryKey = 'id_user';
     /**
      * The attributes excluded from the model's JSON form.
      *

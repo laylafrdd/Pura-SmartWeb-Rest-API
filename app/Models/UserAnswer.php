@@ -13,9 +13,11 @@ class UserAnswer extends Model
      * @var array
      */
     protected $fillable = [
-        'soal_test_user', 'opsi_test_user', 'created_at', 'id_jawaban', 'user', 'soal_test', 'opsi_test'
+        'soal_test_user', 'opsi_test_user', 'created_at', 'id_jawaban', 'user', 'soal_test', 'opsi_test', 'updated_at'
     ];
     public $timestamps = true;
+    protected $table = 'jawabanuser';
+    protected $primaryKey = 'id_jawaban';
     /**
      * The attributes excluded from the model's JSON form.
      *

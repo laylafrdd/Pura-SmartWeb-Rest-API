@@ -13,9 +13,11 @@ class TrainingCategory extends Model
      * @var array
      */
     protected $fillable = [
-        'deskripsi_training', 'created_at', 'waktu_training', 'gambar', 'nama_training', 'id_training', 'user'
+        'deskripsi_training', 'created_at', 'waktu_training', 'gambar', 'nama_training', 'id_training', 'user', 'updated_at'
     ];
     public $timestamps = true;
+    protected $table = 'kategoritraining';
+    protected $primaryKey = 'id_training';
     /**
      * The attributes excluded from the model's JSON form.
      *

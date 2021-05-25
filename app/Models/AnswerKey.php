@@ -13,10 +13,12 @@ class AnswerKey extends Model
      * @var array
      */
     protected $fillable = [
-        'soal_test', 'opsi_test', 'created_at', 'id_kunci', 'opsi_test_pilih', 'soal_test_pilih'
+        'soal_test', 'opsi_test', 'created_at', 'id_kunci', 'opsi_test_pilih', 'soal_test_pilih', 'updated_at'
     ];
 
     public $timestamps = true;
+    protected $table = 'kuncijawaban';
+    protected $primaryKey = 'id_kunci';
 
     /**
      * The attributes excluded from the model's JSON form.

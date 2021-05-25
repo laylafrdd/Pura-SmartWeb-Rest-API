@@ -13,9 +13,11 @@ class TestQuestion extends Model
      * @var array
      */
     protected $fillable = [
-        'soal_test', 'created_at', 'id_soal_test', 'kode_soal', 'master_test'
+        'soal_test', 'created_at', 'id_soal_test', 'kode_soal', 'master_test', 'updated_at'
     ];
     public $timestamps = true;
+    protected $table = 'soaltest';
+    protected $primaryKey = 'id_soal_test';
     /**
      * The attributes excluded from the model's JSON form.
      *

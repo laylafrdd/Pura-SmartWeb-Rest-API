@@ -13,9 +13,11 @@ class MasterTest extends Model
      * @var array
      */
     protected $fillable = [
-        'nama_test', 'created_at', 'id_master'
+        'nama_test', 'created_at', 'id_master', 'updated_at'
     ];
     public $timestamps = true;
+    protected $table = 'mastertes';
+    protected $primaryKey = 'id_master';
     /**
      * The attributes excluded from the model's JSON form.
      *

@@ -13,10 +13,12 @@ class PollCategory extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'github', 'twitter', 'location', 'latest_article_published'
+        'jenis_polling', 'keterangan_polling', 'created_at', 'twitter', 'id_kategori_polling', 'updated_at'
     ];
 
     public $timestamps = true;
+    protected $table = 'kategoriartikel';
+    protected $primaryKey = 'id_kategori_polling';
     /**
      * The attributes excluded from the model's JSON form.
      *

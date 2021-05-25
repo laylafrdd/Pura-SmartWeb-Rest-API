@@ -13,9 +13,11 @@ class PollResult extends Model
      * @var array
      */
     protected $fillable = [
-        'polling', 'polling_user', 'created_at', 'id_polling', 'user', 'isi_polling', 'opsi_polling'
+        'polling', 'polling_user', 'created_at', 'id_polling', 'user', 'isi_polling', 'opsi_polling', 'updated_at'
     ];
     public $timestamps = true;
+    protected $table = 'hasilpolling';
+    protected $primaryKey = 'id_polling';
     /**
      * The attributes excluded from the model's JSON form.
      *

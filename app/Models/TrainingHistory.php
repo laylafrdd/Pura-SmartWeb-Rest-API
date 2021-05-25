@@ -13,9 +13,11 @@ class TrainingHistory extends Model
      * @var array
      */
     protected $fillable = [
-        'nama_history_training', 'created_at', 'id_history_training', 'user'
+        'nama_history_training', 'created_at', 'id_history_training', 'user', 'updated_at'
     ];
     public $timestamps = true;
+    protected $table = 'historytraining';
+    protected $primaryKey = 'id_history_training';
     /**
      * The attributes excluded from the model's JSON form.
      *
