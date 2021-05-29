@@ -35,4 +35,12 @@ class ArticleContentController extends Controller
         $Article->save();
         return response()->json(["data" => $Article, "message" => "success"]);
     }
+
+    public function delete($id)//done
+    {
+        $Article = ArticleContent::find($id);
+        $Article->delete();
+
+        return response()->json('success delete data');
+    }
 }

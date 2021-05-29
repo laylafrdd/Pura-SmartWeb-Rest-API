@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PollCategory extends Model
+class Admin extends Model
 {
 
     /**
@@ -13,16 +13,19 @@ class PollCategory extends Model
      * @var array
      */
     protected $fillable = [
-        'jenis_polling', 'keterangan_polling', 'created_at', 'id_kategori_polling', 'updated_at'
+        'id_admin', 'firstname', 'lastname', 'username', 'email', 'password', 'created_at', 'updated_at'
     ];
 
     public $timestamps = true;
-    protected $table = 'kategoripolling';
-    protected $primaryKey = 'id_kategori_polling';
+    protected $table = 'admin';
+    protected $primaryKey = 'id_admin';
+
     /**
      * The attributes excluded from the model's JSON form.
      *
      * @var array
      */
-    protected $hidden = [];
+    protected $hidden = [
+        'password'
+    ];
 }
