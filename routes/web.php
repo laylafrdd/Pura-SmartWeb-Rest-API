@@ -82,4 +82,5 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->delete('deleteadmin/{id}', 'AdminController@delete');
     $router->post('admin/login', 'AdminController@loginAdmin');
     $router->post('admin', 'AdminController@showAdmin');
+    $router->put('updatepassword', 'AdminController@updatePassword');
 });

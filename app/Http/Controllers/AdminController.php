@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use GrahamCampbell\ResultType\Result;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Expr\ArrayItem;
@@ -38,7 +39,7 @@ class AdminController extends Controller
 
         $Admin->save();
 
-        return response()->json("Success add data");
+        return response()->json(["message" => "success"]);
     }
 
     public function update(Request $request, $id) //done
@@ -49,11 +50,34 @@ class AdminController extends Controller
         $Admin->lastname = $request->lastname;
         $Admin->username = $request->username;
         $Admin->email = $request->email;
-        $Admin->password = Hash::make($request->password);
+        // $Admin->password = Hash::make($request->password);
 
         $Admin->save();
 
         return response()->json(["data" => $Admin, "message" => "succes"]);
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $admin = DB::table('admin')
+            ->where('username', $request->input('username'))
+            ->first();
+        if (Hash::check($request->input('password'), $admin->password)) {
+            $result = DB::table('admin')
+                ->where('id_admin', $admin->id_admin)
+                ->update([
+                    'password' => Hash::make(
+                        $request->input('passwordbaru')
+                    ),
+                ]);
+            if ($result) {
+                return response()->json(["success" => true], 200);
+            } else {
+                return response()->json(["success" => false, "message" => "update password gagal"], 500);
+            }
+        }
+
+        return response()->json(['success' => false, "message" => "password lama anda salah"], 500);
     }
 
     public function delete($id) //done
@@ -86,8 +110,8 @@ class AdminController extends Controller
     {
         $username = $request->input('username');
         $user = DB::table('admin')
-        ->where('username', "=", $username)
-        ->first();
+            ->where('username', "=", $username)
+            ->first();
         return response()->json($user);
     }
- }
+}
