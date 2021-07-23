@@ -48,7 +48,7 @@ class UserController extends Controller
                 'username' => $request->input('username'),
                 'password' => Hash::make($request->input('password')),
                 'email' => $request->input('email'),
-                // 'nama' => $request->input('nama'),
+                // 'password' => $request->input('nama'),
                 // 'aktivasi' => $request->input('nama'),
                 // 'created_at' -> ino
                 // 'nama' => $request->input('nama'),
@@ -56,20 +56,22 @@ class UserController extends Controller
             ]);
         return response()->json([$user, 'message' => 'success']);
     }
-    public function deleteUser($id_user) //done
+    public function deleteUser($id) //done
     {
-      $dataDelete = DB::table('users')
-                    -> where('username',$id_user)-> delete();
-        if($dataDelete == 1){
+        $dataDelete = DB::table('users')
+            ->where('id_user', $id)->delete();
+        if ($dataDelete == 1) {
+            return response()->json([
+                'data' => $dataDelete,
+                'code' => 200,
+                'message' => 'success'
+            ]);
+        }
+        if ($dataDelete == 0) {
             return response()->json(array(
-            'code' => 200,
-            'message' => 'Data Deleted'
-        ), 200);
-         } if($dataDelete == 0){
-                return response() -> json(array(
                 'code' => 404,
                 'message' => 'id not found'
             ), 404);
-    }
+        }
     }
 }

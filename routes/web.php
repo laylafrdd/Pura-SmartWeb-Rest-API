@@ -28,7 +28,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('showoneuser/{username}', 'UserController@findOneUser');
     $router->put('updateuser/{id}', 'UserController@updateUser');
     $router->post('createduser', 'UserController@createdUser');
-    $router->delete('deluser/{id_user}', 'UserController@deleteUser');
+    $router->delete('deluser/{id}', 'UserController@deleteUser');
 });
 
 $router->group(['prefix' => 'api'], function () use ($router) {
@@ -49,7 +49,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 $router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('showartcont', 'ArticleContentController@showAllArticle');
     $router->get('showoneartcont/{id}', 'ArticleContentController@showOne');
-    $router->put('updateartcont/{id}', 'AnswerKeyController@update');
+    $router->put('updateartcont/{id}', 'ArticleContentController@updateArticle');
     $router->post('createartcont', 'ArticleContentController@createdArticle');
     $router->delete('deleteartcont/{id}', 'ArticleContentController@delete');
 });
@@ -74,7 +74,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->post('createpollcat', 'PollCategoryController@create');
     $router->delete('deletepollcat/{id}', 'PollCategoryController@delete');
 });
-$router->group(['prefix' => 'api'], function () use ($router) {
+$router->group(['prefix' => 'api'], function () use ($router) { //sudh
     $router->get('showadmin', 'AdminController@showAll');
     $router->get('showoneadmin/{id}', 'AdminController@showOne');
     $router->put('updateadmin/{id}', 'AdminController@update');
@@ -83,4 +83,21 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->post('admin/login', 'AdminController@loginAdmin');
     $router->post('admin', 'AdminController@showAdmin');
     $router->put('updatepassword', 'AdminController@updatePassword');
+    $router->put('updateall/{id}', 'AdminController@updateAllAdm');
+});
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('showstatus', 'EmployeeStatusController@showAll');
+    $router->get('showonestatus/{id}', 'EmployeeStatusController@showOne');
+    $router->put('updatestatus/{id}', 'EmployeeStatusController@updateStatus');
+    $router->post('createstatus', 'EmployeeStatusController@createStatus');
+    $router->delete('deletestatus/{id}', 'EmployeeStatusController@delete');
+});
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('showcategori', 'TrainingCategoryController@showAll');
+    $router->get('showonecategori/{id}', 'TrainingCategoryController@showOne');
+    $router->put('updatecategory/{id}', 'TrainingCategoryController@update');
+    $router->post('createcategory', 'TrainingCategoryController@create');
+    $router->delete('deletecategory/{id}', 'TrainingCategoryController@delete');
 });

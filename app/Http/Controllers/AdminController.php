@@ -86,7 +86,7 @@ class AdminController extends Controller
         $Admin = Admin::find($id);
         $Admin->delete();
 
-        return response()->json('success deleted');
+        return response()->json(["data" => $Admin, "message" => 'success']);
     }
 
     public function loginAdmin(Request $request)
@@ -113,5 +113,19 @@ class AdminController extends Controller
             ->where('username', "=", $username)
             ->first();
         return response()->json($user);
+    }
+
+    public function updateAllAdm($id, Request $request)
+    {
+        $adm = DB::table('admin')
+            ->where('id_admin', $id)
+            ->update([
+                'firstname' => $request->input('firstname'),
+                'lastname' => $request->input('lastname'),
+                'username' => $request->input('username'),
+                'email' => $request->input('email'),
+                'password' => Hash::make($request->input('password'))
+            ]);
+        return response()->json(["data" => $adm, 'message' => 'success']);
     }
 }

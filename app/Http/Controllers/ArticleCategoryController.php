@@ -33,7 +33,7 @@ class ArticleCategoryController extends Controller
 
         $Category->save();
 
-        return response()->json("Success");
+        return response()->json(["message" => "success"]);
     }
 
     public function updateArtCAt(Request $request, $id) //done
@@ -44,7 +44,7 @@ class ArticleCategoryController extends Controller
 
         $Category->save();
 
-        return response()->json($Category);
+        return response()->json(["data" => $Category, "message" => "success"]);
     }
 
     public function delete($id)
@@ -53,6 +53,6 @@ class ArticleCategoryController extends Controller
         $Category = ArticleCategory::find($id);
         $Category->delete();
 
-        return response()->json('success deleted');
+        return response()->json(["data" => $Category, "message" => 'success']);
     }
 }

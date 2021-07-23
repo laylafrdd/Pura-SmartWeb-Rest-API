@@ -36,11 +36,23 @@ class ArticleContentController extends Controller
         return response()->json(["data" => $Article, "message" => "success"]);
     }
 
-    public function delete($id)//done
+    public function updateArticle(Request $request, $id)
+    {
+        $Article = ArticleContent::find($id);
+        $Article->judul_artikel = $request->judul_artikel;
+        $Article->isi_artikel = $request->isi_artikel;
+        $Article->status_karyawan = $request->status_karyawan;
+        $Article->kategori_artikel = $request->kategori_artikel;
+        $Article->save();
+
+        return response()->json(["data" => $Article, "message" => "success"]);
+    }
+
+    public function delete($id) //done
     {
         $Article = ArticleContent::find($id);
         $Article->delete();
 
-        return response()->json('success delete data');
+        return response()->json(["data" => $Article, "message" => 'success']);
     }
 }
