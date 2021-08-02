@@ -40,11 +40,11 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 });
 
 $router->group(['prefix' => 'api'], function () use ($router) {
-    $router->get('showanswer', 'AnswerKeyController@showAllAnswerKey');
-    $router->get('showoneanswer/{id}', 'AnswerKeyController@showOne');
-    $router->put('updateanswer/{id}', 'AnswerKeyController@update');
-    $router->post('createanswer', 'AnswerKeyController@createAnswerKey');
-    $router->delete('deleteanswer/{id}', 'AnswerKeyController@delete');
+    $router->get('showanswerkey', 'AnswerKeyController@showAllAnswerKey');
+    $router->get('showoneanswerkey/{id}', 'AnswerKeyController@showOne');
+    $router->put('updateanswerkey/{id}', 'AnswerKeyController@update');
+    $router->post('createanswerkey', 'AnswerKeyController@createAnswerKey');
+    $router->delete('deleteanswerkey/{id}', 'AnswerKeyController@delete');
 });
 $router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('showartcont', 'ArticleContentController@showAllArticle');
@@ -100,4 +100,100 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->put('updatecategory/{id}', 'TrainingCategoryController@update');
     $router->post('createcategory', 'TrainingCategoryController@create');
     $router->delete('deletecategory/{id}', 'TrainingCategoryController@delete');
+});
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('showresult', 'PollResultController@showAll');
+    $router->get('showoneresult/{id}', 'PollResultController@showOne');
+    $router->put('updateresult/{id}', 'PollResultController@update');
+    $router->post('createresult', 'PollResultController@create');
+    $router->delete('deleteresult/{id}', 'PollResultController@delete');
+});
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('showhistory', 'HistoryTrainingController@showAll');
+    $router->get('showonehistory/{id}', 'HistoryTrainingController@showOne');
+    $router->put('updatehistory/{id}', 'HistoryTrainingController@update');
+    $router->post('createhistory', 'HistoryTrainingController@create');
+    $router->delete('deletehistory/{id}', 'HistoryTrainingController@delete');
+});
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('showpollcontent', 'PollingContentController@showAll');
+    $router->get('showpollcontent/{id}', 'PollingContentController@showOne');
+    $router->put('updatepollcontent/{id}', 'PollingContentController@update');
+    $router->post('createpollcontent', 'PollingContentController@create');
+    $router->delete('deletepollcontent/{id}', 'PollingContentController@delete');
+});
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('showtraicontent', 'TrainingContentController@showAll');
+    $router->get('showtraicontent/{id}', 'TrainingContentController@showOne');
+    $router->put('updatetraicontent/{id}', 'TrainingContentController@update');
+    $router->post('createtraicontent', 'TrainingContentController@create');
+    $router->delete('deletetraicontent/{id}', 'TrainingContentController@delete');
+});
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('showanswer', 'UserAnswerController@showAll');
+    $router->get('showanswer/{id}', 'UserAnswerController@showOne');
+    $router->put('updateanswer/{id}', 'UserAnswerController@update');
+    $router->post('createanswer', 'UserAnswerController@create');
+    $router->delete('deleteanswer/{id}', 'UserAnswerController@delete');
+});
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('showpollops', 'PollingOptionController@showAll');
+    $router->get('showpollops/{id}', 'PollingOptionController@showOne');
+    $router->put('updatepollops/{id}', 'PollingOptionController@update');
+    $router->post('createpollops', 'PollingOptionController@create');
+    $router->delete('deletepollops/{id}', 'PollingOptionController@delete');
+});
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('showtestops', 'TestOptionController@showAll');
+    $router->get('showtestops/{id}', 'TestOptionController@showOne');
+    $router->put('updatetestops/{id}', 'TestOptionController@update');
+    $router->post('createtestops', 'TestOptionController@create');
+    $router->delete('deletetestops/{id}', 'TestOptionController@delete');
+});
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('showval', 'ValuationController@showAll');
+    $router->get('showval/{id}', 'ValuationController@showOne');
+    $router->put('updateval/{id}', 'ValuationController@update');
+    $router->post('createval', 'ValuationController@create');
+    $router->delete('deleteval/{id}', 'ValuationController@delete');
+});
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('showtq', 'TestQuestionController@showAll');
+    $router->get('showtq/{id}', 'TestQuestionController@showOne');
+    $router->put('updatetq/{id}', 'TestQuestionController@update');
+    $router->post('createtq', 'TestQuestionController@create');
+    $router->delete('deletetq/{id}', 'TestQuestionController@delete');
+});
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('showtrnf', 'TrainingFeedbackController@showAll');
+    $router->get('showtrnf/{id}', 'TrainingFeedbackController@showOne');
+    $router->put('updatetrnf/{id}', 'TrainingFeedbackController@update');
+    $router->post('createtrnf', 'TrainingFeedbackController@create');
+    $router->delete('deletetrnf/{id}', 'TrainingFeedbackController@delete');
+});
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('showtref', 'TrainerFeedbackController@showAll');
+    $router->get('showtref/{id}', 'TrainerFeedbackController@showOne');
+    $router->put('updatetref/{id}', 'TrainerFeedbackController@update');
+    $router->post('createtref', 'TrainerFeedbackController@create');
+    $router->delete('deletetref/{id}', 'TrainerFeedbackController@delete');
+});
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('showrv', 'RegulationVideoController@showAll');
+    $router->get('showrv/{id}', 'RegulationVideoController@showOne');
+    $router->put('updaterv/{id}', 'RegulationVideoController@update');
+    $router->post('createrv', 'RegulationVideoController@create');
+    $router->delete('deleterv/{id}', 'RegulationVideoController@delete');
 });

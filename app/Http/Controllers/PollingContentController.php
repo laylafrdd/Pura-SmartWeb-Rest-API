@@ -24,35 +24,38 @@ class PollingContentController extends Controller
         return response()->json($Conten);
     }
 
-    // public function create(Request $request) //done
-    // {
+    public function create(Request $request) //done
+    {
 
-    //     $Master = new MasterTest();
+        $Conten = new PollingContent();
 
-    //     $Master->nama_test = $request->nama_test;
+        $Conten->isi_polling = $request->isi_polling;
+        $Conten->kategori_polling = $request->kategori_polling;
 
-    //     $Master->save();
+        $Conten->save();
 
-    //     return response()->json("Success add data");
-    // }
+        return response()->json("Success add data");
+    }
 
-    // public function update(Request $request, $id) //done
-    // {
-    //     $Master = MasterTest::find($id);
+    public function update(Request $request, $id) //done
+    {
+        $Conten = PollingContent::find($id);
 
-    //     $Master->nama_test = $request->nama_test;
+        $Conten->isi_polling = $request->isi_polling;
+        $Conten->kategori_polling = $request->kategori_polling;
 
-    //     $Master->save();
+        $Conten->save();
 
-    //     return response()->json(["data"=>$Master, "message" => "succes"]);
-    // }
 
-    // public function delete($id) //done
-    // {
-    //     # code...
-    //     $Master = MasterTest::find($id);
-    //     $Master->delete();
+        return response()->json(["data"=>$Conten, "message" => "succes"]);
+    }
 
-    //     return response()->json('success deleted');
-    // }
+    public function delete($id) //done
+    {
+        # code...
+        $Conten = PollingContent::find($id);
+        $Conten->delete();
+
+        return response()->json('success deleted');
+    }
 }

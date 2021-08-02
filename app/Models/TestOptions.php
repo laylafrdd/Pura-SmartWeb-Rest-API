@@ -16,7 +16,7 @@ class TestOptions extends Model
         'opsi_test', 'created_at', 'id_opsi_test', 'kode_opsi', 'soal_test', 'updated_at'
     ];
     public $timestamps = true;
-    protected $table = 'kategoriartikel';
+    protected $table = 'opsitest';
     protected $primaryKey = 'id_opsi_test';
     /**
      * The attributes excluded from the model's JSON form.

@@ -13,7 +13,7 @@ class PollResult extends Model
      * @var array
      */
     protected $fillable = [
-        'polling', 'polling_user', 'created_at', 'id_polling', 'user', 'isi_polling', 'opsi_polling', 'updated_at'
+        'polling', 'pilihan_user', 'created_at', 'id_polling', 'user', 'isi_polling', 'opsi_polling', 'updated_at'
     ];
     public $timestamps = true;
     protected $table = 'hasilpolling';

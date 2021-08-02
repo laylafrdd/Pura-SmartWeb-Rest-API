@@ -13,7 +13,7 @@ class TrainingContent extends Model
      * @var array
      */
     protected $fillable = [
-        'isi_training', 'created_at', 'jenis_training', 'id_isi_training', 'updated_at'
+        'isi_training', 'created_at', 'jenis_training', 'id_isi_training','kategori_training', 'updated_at'
     ];
     public $timestamps = true;
     protected $table = 'isitraining';
