@@ -25,6 +25,7 @@ $router->get('/', function () use ($router) {
 
 $router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('showuser', 'UserController@showAllUser');
+    $router->get('showuserbyname/{name}', 'UserController@findUsersByName');
     $router->get('showoneuser/{username}', 'UserController@findOneUser');
     $router->put('updateuser/{id}', 'UserController@updateUser');
     $router->post('createduser', 'UserController@createdUser');

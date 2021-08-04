@@ -14,11 +14,16 @@ class MatrikController extends Controller
     public function showAll() //done
     {
 
-        $Matrik = Matriks::all();
-        return response()->json($Matrik);
+        //$Matrik = Matriks::all();
+
+        $matriks = Matriks::join('users', 'users.id_user', '=', 'matriks.user')
+            ->select('matriks.id_matriks','matriks.bulan_matriks','matriks.nilai_performa','matriks.created_at','users.nama', 'users.id_user')
+            ->get();
+
+        return response()->json($matriks);
     }
 
-    public function showOne($id) //done
+    public function showOneById($id) //done
     {
         $Matrik = Matriks::find($id);
         return response()->json($Matrik);
@@ -48,7 +53,7 @@ class MatrikController extends Controller
 
         $Matrik->save();
 
-        return response()->json(["data"=>$Matrik, "message" => "succes"]);
+        return response()->json(["data" => $Matrik, "message" => "succes"]);
     }
 
     public function delete($id) //done
