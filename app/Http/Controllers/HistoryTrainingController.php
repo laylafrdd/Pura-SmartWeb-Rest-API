@@ -16,7 +16,9 @@ class HistoryTrainingController extends Controller
     public function showAll() //done
     {
 
-        $TrainingHistory = TrainingHistory::all();
+        $TrainingHistory = TrainingHistory::join('users', 'users.id_user', '=', 'historytraining.user')
+        ->select('historytraining.id_history_training','historytraining.nama_history_training', 'historytraining.created_at', 'users.nama')
+        ->get();
         return response()->json($TrainingHistory);
     }
 

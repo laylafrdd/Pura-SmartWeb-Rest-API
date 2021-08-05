@@ -12,7 +12,10 @@ class UserController extends Controller
 {
     public function showAllUser() //done
     {
-        return response()->json(User::all());
+        $result = User::join('statuskaryawan','statuskaryawan.id_status', '=','users.status_karyawan')
+        //->select('users.id_user','users.nama','users.username','users.password','users.email','users.created_at','statuskaryawan.status_karyawan')
+        ->get();
+        return response()->json($result);
     }
 
     public function updateUser($id, Request $request) //done
@@ -43,7 +46,7 @@ class UserController extends Controller
     public function findUsersByName($name)
     {
         $users = User::whereRaw('LOWER(nama) = ?', strtolower($name))
-            ->orWhereRaw('LOWER(nama) like (?)', ["%".strtolower($name)."%"])
+            ->orWhereRaw('LOWER(nama) like (?)', ["%" . strtolower($name) . "%"])
             ->get();
 
         return response()->json($users, 200);

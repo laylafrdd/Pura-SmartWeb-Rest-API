@@ -16,7 +16,9 @@ class TrainingContentController extends Controller
     public function showAll() //done
     {
 
-        $Training = TrainingContent::all();
+        $Training = TrainingContent::join('kategoritraining', 'kategoritraining.id_training', '=', 'isitraining.kategori_training')
+            ->select('isitraining.id_isi_training', 'isitraining.isi_training', 'isitraining.jenis_training', 'isitraining.created_at', 'kategoritraining.nama_training')
+            ->get();
         return response()->json($Training);
     }
 

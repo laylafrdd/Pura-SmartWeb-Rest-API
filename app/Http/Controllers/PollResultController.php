@@ -16,7 +16,11 @@ class PollResultController extends Controller
     public function showAll() //done
     {
 
-        $PollResult = PollResult::all();
+        $PollResult = PollResult::join('users', 'users.id_user', '=' , 'hasilpolling.user')
+        ->join('opsipolling', 'opsipolling.id_opsi_polling', '=', 'hasilpolling.pilihan_user')
+        ->join('isipolling', 'isipolling.id_isi_polling', '=', 'hasilpolling.polling')
+        ->select('hasilpolling.id_polling','isipolling.isi_polling','opsipolling.opsi_polling', 'users.nama', 'hasilpolling.created_at')
+        ->get();
         return response()->json($PollResult);
     }
 

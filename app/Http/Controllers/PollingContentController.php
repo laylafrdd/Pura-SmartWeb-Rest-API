@@ -14,7 +14,9 @@ class PollingContentController extends Controller
     public function showAll() //done
     {
 
-        $Conten = PollingContent::all();
+        $Conten = PollingContent::join('kategoripolling', 'kategoripolling.id_kategori_polling', '=', 'isipolling.kategori_polling')
+        ->select('isipolling.id_isi_polling','isipolling.isi_polling','isipolling.created_at','kategoripolling.jenis_polling')
+        ->get();
         return response()->json($Conten);
     }
 
